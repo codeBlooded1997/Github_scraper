@@ -16,7 +16,7 @@ driver.get(URL)
 driver.maximize_window()
 
 # Wait 20 seconds for page to load
-timeout = 20
+timeout = 30
 try:
     WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, "//img[@class=’avatar width-full rounded-2']")))
 except TimeoutException:
