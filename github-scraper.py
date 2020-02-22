@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import pandas as pd
+from time import sleep
 
 option = webdriver.ChromeOptions()
 option.add_argument(" - incognito") # browsing in private mode
@@ -16,9 +17,9 @@ driver.get(URL)
 driver.maximize_window()
 
 # Wait 20 seconds for page to load
-timeout = 30
+timeout = 20
 try:
-    WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, "//img[@class=’avatar width-full rounded-2']")))
+    WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, "//img[@class='avatar width-full height-full rounded-2']")))
 except TimeoutException:
     print("Timed out waiting for page to load")
     driver.quit()
